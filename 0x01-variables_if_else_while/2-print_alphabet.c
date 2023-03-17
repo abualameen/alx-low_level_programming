@@ -7,7 +7,7 @@
 int main(void)
 {
 	int p = 97;
-	
+
 	while (p <= 122)
 	{
 		putchar(p);
