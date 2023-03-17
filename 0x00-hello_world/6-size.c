@@ -1,16 +1,14 @@
 #include <stdio.h>
 /**
- * main - it checks for sizes for all types in the computer
- *
- * Return: 0 if suceesful
+ * main - this programme prints the sizes fo types
+ * Return: always 0 (sucess)
  */
-
 int main(void)
 {
 	printf("Size of char: %lu byte(s)\n", sizeof(char));
 	printf("Size of int: %lu byte(s)\n", sizeof(int));
-	printf("Size of a long int: %lu byte(s)\n", sizeof(long int));
-	printf("Size of a long long int: %lu byte(s)\n", sizeof(long long int));
-	printf("Size of a float: %lu byte(s)\n", sizeof(float));
+	printf("Size of long int: %lu byte(s)\n", sizeof(long int));
+	printf("Size of long long int: %lu byte(s)\n", sizeof(long long int));
+	printf("Size of float: %lu byte(s)\n", sizeof(float));
 	return (0);
 }
