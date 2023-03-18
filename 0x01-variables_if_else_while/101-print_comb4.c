@@ -16,11 +16,15 @@ int main(void)
 		{
 			for (p = 2; p < 10; p++)
 			{
-				if (m < n && m != n && n != p && m != p)
+				if (m < n && n < p && m != n && n != p && m != p)
 				{
 					putchar(m + '0');
 					putchar(n + '0');
 					putchar(p + '0');
+					if (m == 7 && n == 8 && p == 9)
+					{
+						continue;
+					}
 					putchar(',');
 					putchar(' ');
 				}
