@@ -1,7 +1,8 @@
 #include "main.h"
 /**
- * _abs - 'absolute value'
+ * _abs- 'absolute value of a number'
  * @n: 'parameter of function'
+ * Return: always 0
  */
 int _abs(int n)
 {
