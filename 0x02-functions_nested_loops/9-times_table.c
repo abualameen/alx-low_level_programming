@@ -31,7 +31,7 @@ void times_table(void)
 					a /= 10;
 				}
 				_putchar(a + '0');
-				_putchar(q + '0');
+				_putchar( q + '0');
 				if (n == 9)
 				{
 					continue;
@@ -39,6 +39,10 @@ void times_table(void)
 				_putchar(',');
 				_putchar(' ');
 			}
+			if (m == 2 && n == 4 || m == 3 && n == 3 || m == 4 && n == 2 || m == 5 && n == 1 || m == 6 && n == 1 || m == 7 && n == 1 || m == 8 && n == 1 || m == 9 && n == 1)
+		{
+			_putchar('\b');
+		}
 		}
 		_putchar('\n');
 	}
