@@ -20,6 +20,6 @@ char *_strcpy(char *dest, char *src)
 	{
 		dest[g] = src[g];
 	}
-	dest[g + 1] = '\0';
+	dest[count + 1] = '\0';
 	return (dest);
 }
