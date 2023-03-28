@@ -7,20 +7,20 @@
 
 void rev_string(char *s)
 {
-        char xca = s[0];
+	char xca = s[0];
 	int d;
-	int count = 0; 
-        int p;
+	int count = 0;
+	int p;
 
-        for (d = 0; s[d] != '\0'; d++)
-        {
-                count++;
-        }
-        for (p = 0; p < count; p++)
-     	{
-                count--;
-                xca = s[p];
-                s[p] = s[count];
-                s[count] = xca;
-        }
+	for (d = 0; s[d] != '\0'; d++)
+	{
+		count++;
+	}
+	for (p = 0; p < count; p++)
+	{
+		count--;
+		xca = s[p];
+		s[p] = s[count];
+		s[count] = xca;
+	}
 }
