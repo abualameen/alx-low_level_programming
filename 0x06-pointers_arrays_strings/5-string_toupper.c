@@ -7,8 +7,6 @@
 
 char *string_toupper(char *n)
 {
-	int k;
-	int count = 0;
 	int j;
 
 	j = 0;
