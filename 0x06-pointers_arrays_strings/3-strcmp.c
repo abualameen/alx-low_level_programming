@@ -44,4 +44,16 @@ int _strcmp(char *s1, char *s2)
 	{
 		return (s1[0] - s1[0]);
 	}
+	else if (s2[0] - s2[0] == 0)
+	{
+		return (s2[0] - s2[0]);
+	}
+	else if (s2[0] - s2[0] < 0)
+	{
+		return (s2[0] - s2[0]);
+	}
+	else if (s2[0] - s2[0] > 0)
+	{
+		return (s2[0] - s2[0]);
+	}
 }
