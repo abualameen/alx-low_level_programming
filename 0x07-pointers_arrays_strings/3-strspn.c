@@ -8,8 +8,7 @@
 unsigned int _strspn(char *s, char *accept)
 {
 	int counter = 0;
-	int g;
-	int f, t, v, i;
+	int f, t, v, i, g;
 	int count = 0;
 	int count_1 = 0;
 	int b = 0;
