@@ -28,17 +28,13 @@ unsigned int _strspn(char *s, char *accept)
 		{
 			if (s[t] == accept[v])
 			{
-				b = 1;
+				counter++;
 				break;
 			}
 		}
-		if (b == 0 || s[t] == ',')
+		if (accept[t] == '\0')
 		{
 			break;
-		}
-		else
-		{
-			counter++;
 		}
 	}
 	return (counter);
