@@ -12,6 +12,7 @@ unsigned int _strspn(char *s, char *accept)
 	int f, t, v, i;
 	int count = 0;
 	int count_1 = 0;
+	int b = 0;
 
 	for (g = 0; s[g] != '\0'; g++)
 	{
@@ -25,15 +26,14 @@ unsigned int _strspn(char *s, char *accept)
 	{
 		for (v = 0; v <= count_1; v++)
 		{
-			if (s[v] == accept[t])
+			if (s[t] == accept[v])
 			{
 				counter++;
-			}
-			else
-			{
-				continue;
+				break;
 			}
 		}
+		if (s[t] == ',')
+			break;
 	}
 	return (counter);
 }
