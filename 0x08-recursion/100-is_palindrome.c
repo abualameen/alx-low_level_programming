@@ -21,14 +21,17 @@ int is_palindrome(char *s)
 
 int str_count(char *s)
 {
-	int i;
+	int i = 0;
 	int count = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	if (*s == '\0')
 	{
-	count++;
+		return (0);
 	}
-	return (count);
+	else
+	{
+		return (1 + str_count(s + 1));
+	}
 }
 
 
