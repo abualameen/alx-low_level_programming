@@ -21,9 +21,6 @@ int is_palindrome(char *s)
 
 int str_count(char *s)
 {
-	int i = 0;
-	int count = 0;
-
 	if (*s == '\0')
 	{
 		return (0);
