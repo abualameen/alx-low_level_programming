@@ -7,11 +7,9 @@
  * @argv: argu vector
  * Return: 0
  */
-
 int main(int argc, char *argv[])
 {
-	int cn;
-	int a, b, c, d, e;
+	int num_coins = 0, cents;
 
 	if (argc != 2)
 	{
@@ -23,44 +21,34 @@ int main(int argc, char *argv[])
 		printf("%d\n", 0);
 	}
 	cents = atoi(argv[argc - 1]);
-	a = cn % 25;
-	b = cn % 10;
-	c = cn % 5;
-	d = cn % 2;
-	e = cn % 1;
-	printf("%d\n", c);
-	printf("%d\n", cn / 5);
-	if (cn >= 25 && cn >= 10 && cn >= 5 && cn >= 2 && cn >= 1)
+	while (cents > 0)
 	{
-		if (cn / 25 + a < cn / 10 + b && cn / 10 + b < cn / 5 + c && cn / 5 + c < cn / 2 + d && cn / 2 + d < cn / 1 + e)
+		if (cents >= 25)
 		{
-			printf("%d\n", cn / 25 + a);
+			cents -= 25;
+			num_coins++;
+		}
+		else if (cents >= 10)
+		{
+			cents -= 10;
+			num_coins++;
+		}
+		else if (cents >= 5)
+		{
+			cents -= 5;
+			num_coins++;
+		}
+		else if (cents >= 2)
+		{
+			cents -= 2;
+			num_coins++;
+		}
+		else
+		{
+			cents -= 1;
+			num_coins++;
 		}
 	}
-	else if (cn <= 25 || cn <= 10 || cn <= 5 || cn <= 2 || cn <= 1)
-	{
-		if (cn / 10 + b < cn / 5 + c && cn / 5 + c < cn / 2 + d && cn / 2 + d < cn / 1 + e)
-		{
-			printf("%d\n", cn / 10 + b);
-		}
-	}
-	else if (cn <= 25 || cn <= 10 || cn <= 5 || cn <= 2 || cn <= 1)
-	{
-		if (cn / 5 + c < cn / 2 + d && cn / 2 + d < cn / 1 + e)
-		{
-			printf("%d\n", (cn / 5) + (c));
-		}
-	}
-	else if (cn <= 25 || cn <= 10 || cn <= 5 || cn <= 2 || cn <= 1)
-	{
-		if (cn / 2 + d < cn / 1 + e)
-		{
-			printf("%d\n", cn / 2 + d);
-		}
-	}
-	else if (cn <= 25 || cn <= 10 || cn <= 5 || cn <= 2 || cn <= 1)
-	{
-		printf("%d\n", cn / 1 + e);
-	}
+	printf("%d\n", num_coins);
 	return (0);
 }
