@@ -18,6 +18,14 @@ char *str_concat(char *s1, char *s2)
 		s1 = "";
 		s2 = "";
 	}
+	else if (!s1 && s2)
+	{
+		s1 = "";
+	}
+	else if (!s2 && s1)
+	{
+		s2 = "";
+	}
 	for (k = 0; s1[k] != '\0'; k++)
 	{
 		c_s1++;
