@@ -2,7 +2,7 @@
 #include <stdlib.h>
 /**
  * alloc_grid - the function pointer to two d array
- * @width: argument 
+ * @width: argument
  * @height: argument
  * Return: pointer
  */
@@ -18,7 +18,7 @@ int **alloc_grid(int width, int height)
 	arr = malloc(sizeof(int *) * height);
 	if (arr == NULL)
 	{
-		return (NULL);		
+		return (NULL);
 	}
 	for (y = 0; y < height; y++)
 	{
