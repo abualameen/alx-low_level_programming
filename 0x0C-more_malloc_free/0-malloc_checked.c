@@ -13,14 +13,8 @@ void *malloc_checked(unsigned int b)
 	void *ptr;
 
 	ptr = malloc(b);
-	if (ptr != NULL)
+	if (ptr == NULL)
 	{
-		printf("Before exit...\n");
-		return(ptr);
-	}
-	else if (ptr == NULL)
-	{
-		printf("After exit...\n");
 		exit(98);
 	}
 	return (ptr);
