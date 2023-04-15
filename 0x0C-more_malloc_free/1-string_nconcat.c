@@ -35,23 +35,46 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		s_c2++;
 	}
-	if (n >= s_c2)
+	if (n < s_c2)
 	{
-		n = s_c2;
+		wod = malloc(s_c1 + n + 1 * sizeof(char));
+		if (wod == NULL)
+		{
+			return (NULL);
+		}
+		else
+		{
+			for (r = 0; r < s_c1; r++)
+			{
+				wod[r] = s1[r];
+			}
+			for (w = 0; w < n; w++)
+			{
+				wod[s_c1 + w] = s2[w];
+			}
+			wod[s_c1 + n + 1] = '\0';
+		}
 	}
-	wod = malloc(s_c1 + s_c2 + 1 * sizeof(char));
-	if (wod == NULL)
+	else if (n >= s_c2)
 	{
-		return (NULL);
+		wod = malloc(s_c1 + s_c2 + 1 * sizeof(char));
+		if (wod == NULL)
+		{
+			return (NULL);
+		}
+		else
+		{
+			for (r = 0; r < s_c1; r++)
+			{
+				wod[r] = s1[r];
+			}
+			for (w = 0; w < s_c1; w++)
+			{
+				wod[s_c1 + w] = s2[w];
+			}
+			wod[s_c1 + s_c2 + 1] = '\0';
+		}
+		
 	}
-	for (r = 0; r < s_c1; r++)
-	{
-		wod[r] = s1[r];
-	}
-	for (w = 0; w < n; w++)
-	{
-		wod[s_c1 + w] = s2[w];
-	}
-	wod[s_c1 + s_c2 + 1] = '\0';
 	return (wod);
 }
