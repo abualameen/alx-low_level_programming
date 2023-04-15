@@ -15,21 +15,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *wod;
 
 	if (s1 == NULL)
-	{
 		s1 = "";
-	}
 	if (s2 == NULL)
-	{
 		s2 = "";
-	}
 	for (f = 0; s1[f] != '\0'; f++)
-	{
 		s_c1++;
-	}
 	for (t = 0; s2[t] != '\0'; t++)
-	{
 		s_c2++;
-	}
 	if (n < s_c2)
 	{
 		wod = malloc(s_c1 + n + 1 * sizeof(char));
