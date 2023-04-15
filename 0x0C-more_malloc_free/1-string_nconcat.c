@@ -44,5 +44,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		wod[s_c1 + w] = s2[w];
 	}
+	wod[s_c1 + s_c2 + 1] = '\0';
 	return (wod);
 }
