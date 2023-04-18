@@ -8,7 +8,7 @@
  * @owner: attribute
  * Return: 0
  */
-struct dog
+struct dog_t
 {
 	char *name;
 	float age;
