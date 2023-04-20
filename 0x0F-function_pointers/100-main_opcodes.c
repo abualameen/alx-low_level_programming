@@ -18,12 +18,13 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 	number_of_bytes = atoi(argv[1]);
-	if (number_of_bytes <= 0)
+	if (number_of_bytes < 0)
 	{
 		printf("Error\n");
 		return (2);
 	}
 	opcodes_prnt(number_of_bytes);
+	return (0);
 }
 
 /**
@@ -41,7 +42,7 @@ void opcodes_prnt(int number_of_bytes)
 	last = begin + number_of_bytes;
 	for (t = begin; t < last; t++)
 	{
-		printf("%02x", *t & 0xff);
+		printf("%02hhx ", *t & 0xff);
 	}
 	printf("\n");
 }
