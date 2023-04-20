@@ -15,6 +15,11 @@ int main(int argc, char *argv[])
 	int (*ptr_func)(int, int);
 	(void)argc;
 
+	if (argc != 4)
+	{
+		printf("Error\n");
+		return (98);
+	}
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
 	operator = argv[2];
@@ -22,7 +27,7 @@ int main(int argc, char *argv[])
 	if (ptr_func == NULL)
 	{
 		printf("Error\n");
-		return (98);
+		return (99);
 	}
 	if ((argv[2][0] == '/' || argv[2][0] == '%') && num2 == 0)
 	{
