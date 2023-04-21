@@ -13,6 +13,10 @@ void print_all(const char * const format, ...)
 	va_list args;
 	int format_count;
 	int t = 0;
+	char c;
+	int i;
+	float f;
+	char *s;
 
 	va_start(args, format);
 
@@ -21,28 +25,28 @@ void print_all(const char * const format, ...)
 	{
 		if (format[t] == 'c')
 		{
-			char g = va_arg(args, int);
+			c = va_arg(args, int);
 
-			printf("%c, ", g);
+			printf("%c, ", c);
 		}
 		else if (format[t] == 'i')
 		{
-			int g = va_arg(args, int);
+			i = va_arg(args, int);
 
-			printf("%d, ", g);
+			printf("%d, ", i);
 		}
 		else if (format[t] == 'f')
 		{
-			double g = va_arg(args, double);
+			f = va_arg(args, double);
 
-			printf("%f, ", g);
+			printf("%f, ", f);
 		}
 		else if (format[t] == 's')
 		{
-			char *g = va_arg(args, char *);
+			s = va_arg(args, char *);
 
-			printf("%s", g);
-			if (g == NULL)
+			printf("%s", s);
+			if (s == NULL)
 			{
 				printf("nil");
 			}
