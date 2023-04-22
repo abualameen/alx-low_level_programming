@@ -17,45 +17,43 @@ void print_all(const char * const format, ...)
 	int i;
 	float f;
 	char *s;
+	char *comma = ", ";
 
 	va_start(args, format);
-
 	format_count = str_len(format);
 	while (t < format_count)
 	{
-		if (format[t] == 'c')
+		switch (format[t])
 		{
-			c = va_arg(args, int);
-
-			printf("%c, ", c);
-		}
-		else if (format[t] == 'i')
-		{
-			i = va_arg(args, int);
-
-			printf("%d, ", i);
-		}
-		else if (format[t] == 'f')
-		{
-			f = va_arg(args, double);
-
-			printf("%f, ", f);
-		}
-		else if (format[t] == 's')
-		{
-			s = va_arg(args, char *);
-
-			printf("%s", s);
-			if (s == NULL)
-			{
-				printf("nil");
-			}
+			case 'c':
+				c = va_arg(args, int);
+				printf("%c%s", c, comma);
+				break;
+			case 'i':
+				i = va_arg(args, int);
+				printf("%d%s", i, comma);
+				break;
+				case 'f':
+				f = va_arg(args, double);
+				printf("%f%s", f, comma);
+				break;
+			case 's':
+				s = va_arg(args, char *);
+				if (!s)
+				{
+					printf("nil");
+				}
+				printf("%s", s);
+				break;
+			default:
+				break;
 		}
 		t++;
 	}
 	va_end(args);
 	printf("\n");
 }
+
 
 /**
  * str_len - finds the str_len of a format
