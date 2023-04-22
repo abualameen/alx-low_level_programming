@@ -66,13 +66,11 @@ void print_all(const char * const format, ...)
 
 int str_len(const char * const str)
 {
-	int i = 0;
 	int count = 0;
 
-	while (str[i] != '\0')
+	while (str[count] != '\0')
 	{
 		count++;
-		i++;
 	}
 	return (count);
 }
