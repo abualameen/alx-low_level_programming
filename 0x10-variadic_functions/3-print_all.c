@@ -26,29 +26,29 @@ void print_all(const char * const format, ...)
 		switch (format[t])
 		{
 
-				case 'c':
-					c = va_arg(args, int);
-					printf("%s%c", comma, c);
-					break;
-				case 'i':
-					i = va_arg(args, int);
-					printf("%s%d", comma, i);
-					break;
-				case 'f':
-					f = va_arg(args, double);
-					printf("%s%f", comma, f);
-					break;
-				case 's':
-					s = va_arg(args, char *);
-					if (s == NULL)
-					{
-						printf("nil");
-					}
-					printf("%s%s", comma, s);
-					break;
-				default:
-					t++;
-					continue;
+			case 'c':
+				c = va_arg(args, int);
+				printf("%s%c", comma, c);
+				break;
+			case 'i':
+				i = va_arg(args, int);
+				printf("%s%d", comma, i);
+				break;
+			case 'f':
+				f = va_arg(args, double);
+				printf("%s%f", comma, f);
+				break;
+			case 's':
+				s = va_arg(args, char *);
+				if (s == NULL)
+				{
+					printf("nil");
+				}
+				printf("%s%s", comma, s);
+				break;
+			default:
+				t++;
+				continue;
 		}
 		comma = ", ";
 		t++;
