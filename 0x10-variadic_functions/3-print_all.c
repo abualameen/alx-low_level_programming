@@ -17,7 +17,7 @@ void print_all(const char * const format, ...)
 	int i;
 	float f;
 	char *s;
-	char *comma = ", ";
+	char *comma = "";
 
 	va_start(args, format);
 	format_count = str_len(format);
@@ -25,29 +25,32 @@ void print_all(const char * const format, ...)
 	{
 		switch (format[t])
 		{
-			case 'c':
-				c = va_arg(args, int);
-				printf("%c%s", c, comma);
-				break;
-			case 'i':
-				i = va_arg(args, int);
-				printf("%d%s", i, comma);
-				break;
+
+				case 'c':
+					c = va_arg(args, int);
+					printf("%s%c", comma, c);
+					break;
+				case 'i':
+					i = va_arg(args, int);
+					printf("%s%d", comma, i);
+					break;
 				case 'f':
-				f = va_arg(args, double);
-				printf("%f%s", f, comma);
-				break;
-			case 's':
-				s = va_arg(args, char *);
-				if (!s)
-				{
-					printf("nil");
-				}
-				printf("%s", s);
-				break;
-			default:
-				break;
+					f = va_arg(args, double);
+					printf("%s%f", comma, f);
+					break;
+				case 's':
+					s = va_arg(args, char *);
+					if (s == NULL)
+					{
+						printf("nil");
+					}
+					printf("%s%s", comma, s);
+					break;
+				default:
+					t++;
+					continue;
 		}
+		comma = ", ";
 		t++;
 	}
 	va_end(args);
