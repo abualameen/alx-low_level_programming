@@ -10,7 +10,7 @@ size_t print_list(const list_t *h)
 {
 	const list_t *latest  = h;
 	size_t counter = 0;
-	
+
 	while (latest)
 	{
 		if ((*latest).str == NULL)
@@ -19,7 +19,7 @@ size_t print_list(const list_t *h)
 		}
 		else
 		{
-			printf("[%u] %s\n", (*latest).len, (*latest).str);
+			printf("[%d] %s\n", (*latest).len, (*latest).str);
 		}
 		latest = (*latest).next;
 		counter++;
