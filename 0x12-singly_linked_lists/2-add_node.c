@@ -40,7 +40,7 @@ list_t *add_node(list_t **head, const char *str)
 int str_len(const char *f)
 {
 	int e;
-	int count;
+	int count = 0;
 
 	for (e = 0; f[e] != '\0'; e++)
 	{
@@ -48,4 +48,3 @@ int str_len(const char *f)
 	}
 	return (count);
 }
-
