@@ -1,7 +1,6 @@
 #include "lists.h"
 #include <stddef.h>
 #include <stdio.h>
-#include <stddef.h>
 /**
  * print_list - print list element of list_t
  * @h:  argument
