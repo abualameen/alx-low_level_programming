@@ -11,10 +11,7 @@ size_t print_list(const list_t *h)
 {
 	const list_t *latest  = h;
 	size_t counter = 0;
-	if (latest == NULL)
-	{
-		printf("[0] (nill)\n");
-	}
+
 	while (latest)
 	{
 		if ((*latest).str != NULL)
