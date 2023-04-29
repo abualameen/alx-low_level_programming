@@ -8,20 +8,19 @@
 
 size_t print_list(const list_t *h)
 {
-	const list_t *latest  = h;
 	size_t counter = 0;
 
-	while (latest)
+	while (h)
 	{
-		if ((*latest).str == NULL)
+		if ((*h).str == NULL)
 		{
 			printf("[0] (nill)\n");
 		}
 		else
 		{
-			printf("[%d] %s\n", (*latest).len, (*latest).str);
+			printf("[%d] %s\n", (*h).len, (*h).str);
 		}
-		latest = (*latest).next;
+		h = (*h).next;
 		counter++;
 	}
 	return (counter);
