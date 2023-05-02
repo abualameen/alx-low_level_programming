@@ -14,19 +14,20 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		exit(98);
 	}
-
-	while (head != NULL)
+	else
 	{
-		printf("[%p] %d\n", (void *)head, (*head).n);
-		counter++;
-		store_node = head;
-		head = (*head).next;
-		if (store_node <= head)
+		while (head != NULL)
 		{
-			printf("-> [%p] %d\n", (void *)head, (*head).n);
-			exit(98);
+			printf("[%p] %d\n", (void *)head, (*head).n);
+			counter++;
+			store_node = head;
+			head = (*head).next;
+			if (store_node <= head)
+			{
+				printf("-> [%p] %d\n", (void *)head, (*head).n);
+				exit(98);
+			}
 		}
 	}
 	return (counter);
-
 }
