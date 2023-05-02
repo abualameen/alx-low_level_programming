@@ -9,7 +9,7 @@ size_t print_listint_safe(const listint_t *head)
 {
 	const listint_t *store_node;
 	size_t counter = 0;
-		
+
 	while (head != NULL)
 	{
 		printf("[%p] %d\n", (void *)head, (*head).n);
