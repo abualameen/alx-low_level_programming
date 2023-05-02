@@ -14,12 +14,12 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		printf("[%p] %d\n", (void *)head, (*head).n);
 		counter++;
-		head = head->next;
 		if (floyd_algo(head))
 		{
 			printf("-> [%p] %d\n", (void *)head, head->n);
-			exit(98);
+			break;
 		}
+		head = head->next;
 	}
 	return (counter);
 }
