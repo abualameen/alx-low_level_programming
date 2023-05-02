@@ -19,7 +19,6 @@ size_t print_listint_safe(const listint_t *head)
 		if (store_node <= head)
 		{
 			printf("-> [%p] %d\n", (void *)head, (*head).n);
-			counter++;
 			exit(98);
 		}
 	}
