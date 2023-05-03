@@ -2,7 +2,6 @@
 const listint_t *floyd_algo(const listint_t *head);
 size_t cont_pri(const listint_t *head, const listint_t *entry_pt);
 size_t wen_no_lop(const listint_t *head);
-/*size_t wen_no_lop(const listint_t *head);*/
 
 /**
  * print_listint_safe - prints linked list struc
@@ -16,7 +15,7 @@ size_t print_listint_safe(const listint_t *head)
 	size_t counter = 0;
 	size_t c;
 	size_t c1;
-	
+
 	entry_pt = floyd_algo(head);
 	if (!entry_pt)
 	{
@@ -34,7 +33,6 @@ size_t print_listint_safe(const listint_t *head)
 		head = head->next;
 		c = cont_pri(head, entry_pt);
 	}
-/*	printf("-> [%p] %d\n", (void *)entry_pt, (*entry_pt).n);*/
 	return (counter + c1 + c);
 }
 
