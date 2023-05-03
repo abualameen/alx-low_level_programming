@@ -17,10 +17,6 @@ size_t print_listint_safe(const listint_t *head)
 	size_t c;
 	size_t c1;
 	
-	if (head == NULL)
-	{
-		exit(98);
-	}
 	entry_pt = floyd_algo(head);
 	if (!entry_pt)
 	{
