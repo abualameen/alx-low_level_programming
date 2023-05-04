@@ -31,6 +31,7 @@ size_t print_listint_safe(const listint_t *head)
 			head = head->next;
 		}
 		printf("[%p] %d\n", (void *)entry_pt, (*entry_pt).n);
+		counter++;
 		head = head->next;
 		c = cont_pri(head, entry_pt);
 	}
