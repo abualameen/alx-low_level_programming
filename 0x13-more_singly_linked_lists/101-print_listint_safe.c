@@ -20,6 +20,7 @@ size_t print_listint_safe(const listint_t *head)
 	if (!entry_pt)
 	{
 		c1 = wen_no_lop(head);
+		return (c1);
 	}
 	else if (entry_pt)
 	{
@@ -33,7 +34,7 @@ size_t print_listint_safe(const listint_t *head)
 		head = head->next;
 		c = cont_pri(head, entry_pt);
 	}
-	return (counter + c || c2);
+	return (counter + c);
 }
 
 
