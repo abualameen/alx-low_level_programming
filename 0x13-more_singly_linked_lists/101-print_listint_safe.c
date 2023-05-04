@@ -33,7 +33,7 @@ size_t print_listint_safe(const listint_t *head)
 		head = head->next;
 		c = cont_pri(head, entry_pt);
 	}
-	return (counter + c1 + c);
+	return (counter + c || c2);
 }
 
 
@@ -83,6 +83,10 @@ size_t cont_pri(const listint_t *head, const listint_t *entry_pt)
 {
 	size_t counter = 0;
 
+	if (head == NULL || entry_pt == NULL)
+	{
+		return (98);
+	}
 	while (head != entry_pt)
 	{
 		printf("[%p] %d\n", (void *)head, (*head).n);
@@ -102,6 +106,10 @@ size_t wen_no_lop(const listint_t *head)
 {
 	size_t count = 0;
 
+	if (head == NULL)
+	{
+		return (98);
+	}
 	while (head != NULL)
 	{
 		printf("[%p] %d\n", (void *)head, (*head).n);
