@@ -23,11 +23,7 @@ int create_file(const char *filename, char *text_content)
 	}
 	fp = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 	num = write(fp, text_content, counter);
-	if (fp == -1)
-	{
-		return (-1);
-	}
-	else if (num == -1)
+	if (fp == -1 || num == -1)
 	{
 		return (-1);
 	}
