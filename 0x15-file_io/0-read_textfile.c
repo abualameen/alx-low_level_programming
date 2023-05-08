@@ -16,7 +16,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	{
 		return (0);
 	}
-	fp = open("filename", O_RDONLY);
+	fp = open(filename, O_RDONLY);
 	if (fp == -1)
 	{
 		return (0);
@@ -28,7 +28,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	num_bytes_r = read(fp, buffer, letters);
-	printf("%ld", num_bytes_r);
 	if (num_bytes_r == -1)
 	{
 		free(buffer);
@@ -36,7 +35,6 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 	num_bytes_w = write(STDOUT_FILENO, buffer, num_bytes_r);
-	printf("%ld", num_bytes_w);
 	if (num_bytes_w == -1 || num_bytes_w != num_bytes_r)
 	{
 		free(buffer);
