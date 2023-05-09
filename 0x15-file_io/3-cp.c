@@ -52,6 +52,12 @@ void file_coping(const char *src, const char *dest)
 		free(buffer);
 		exit(99);
 	}
+	if (fd_from == 0 && fd_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
+		free(buffer);
+		exit(99);
+	}
 	while ((num_read = read(fd_from, buffer, BUFFER_S)) > 0)
 	{
 		num_written = write(fd_to, buffer, num_read);
