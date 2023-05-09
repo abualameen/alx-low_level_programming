@@ -1,5 +1,5 @@
 #include "main.h"
-int gon(void);
+void file_coping(const char *src, const char *dest);
 /**
  * main - main entry
  * @argc: argument count
@@ -9,26 +9,38 @@ int gon(void);
 
 int main(int argc, char **argv)
 {
-	int fd_from, fd_to;
-	ssize_t num_read, num_written;
-	char buffer[BUFFER_S];
-	mode_t file_permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
-
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
 		exit(97);
 	}
-	fd_from = open(argv[1], O_RDONLY);
+	file_coping(argv[1], argv[2]);
+	return (0);
+}
+
+/**
+ * file_coping - copies file content to anotheer
+ * @src: source
+ * @dest: destination file
+ * Return: 0
+ */
+
+void file_coping(const char *src, const char *dest)
+{
+	int fd_from, fd_to;
+	ssize_t num_read, num_written;
+	char buffer[BUFFER_S];
+
+	fd_from = open(src, O_RDONLY);
 	if (fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s", src);
 		exit(98);
 	}
-	fd_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, file_permissions);
+	fd_to = open(dest, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s", dest);
 		exit(99);
 	}
 	while ((num_read = read(fd_from, buffer, BUFFER_S)) > 0)
@@ -36,13 +48,13 @@ int main(int argc, char **argv)
 		num_written = write(fd_to, buffer, num_read);
 		if (num_written == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s", dest);
 			exit(99);
 		}
 	}
 	if (num_read == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 		exit(98);
 	}
 	if (close(fd_from) == -1)
@@ -55,13 +67,4 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Cant't close fd %d\n", fd_to);
 		exit(100);
 	}
-	return (0);
-}
-/**
- * gon - gon new
- * Return: void
- */
-int gon(void)
-{
-	return (0);
 }
