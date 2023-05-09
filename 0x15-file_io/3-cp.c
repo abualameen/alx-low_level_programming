@@ -14,6 +14,11 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: %s file_from file_to\n", argv[0]);
 		exit(97);
 	}
+	if (argv[2] == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(99);
+	}
 	file_coping(argv[1], argv[2]);
 	return (0);
 }
