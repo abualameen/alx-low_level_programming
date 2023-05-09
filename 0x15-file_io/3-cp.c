@@ -44,7 +44,8 @@ void file_coping(const char *src, const char *dest)
 		free(buffer);
 		exit(98);
 	}
-	fd_to = open(dest, O_WRONLY | O_TRUNC | O_EXCL, 0664);
+
+	fd_to = open(dest, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
