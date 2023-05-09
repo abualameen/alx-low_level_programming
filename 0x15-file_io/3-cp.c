@@ -34,13 +34,13 @@ void file_coping(const char *src, const char *dest)
 	fd_from = open(src, O_RDONLY);
 	if (fd_from == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s", src);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 		exit(98);
 	}
 	fd_to = open(dest, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", dest);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 		exit(99);
 	}
 	while ((num_read = read(fd_from, buffer, BUFFER_S)) > 0)
@@ -48,7 +48,7 @@ void file_coping(const char *src, const char *dest)
 		num_written = write(fd_to, buffer, num_read);
 		if (num_written == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", dest);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
 			exit(99);
 		}
 	}
