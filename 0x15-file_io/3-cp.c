@@ -43,7 +43,7 @@ void file_coping(const char *src, const char *dest)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
 		exit(98);
 	}
-	fd_to = open(dest, O_WRONLY | O_TRUNC, 0664);
+	fd_to = open(dest, O_WRONLY | O_TRUNC | O_EXCL, 0664);
 	if (fd_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
