@@ -74,7 +74,7 @@ void file_coping(const char *src, const char *dest)
 		free(buffer);
 		exit(100);
 	}
-	if (close(fd_from) == -1)
+	if (close(fd_to) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Cant't close fd %d\n", fd_to);
 		free(buffer);
