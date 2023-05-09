@@ -29,8 +29,14 @@ void file_coping(const char *src, const char *dest)
 {
 	int fd_from, fd_to;
 	ssize_t num_read, num_written;
-	char buffer[BUFFER_S];
+	char *buffer;
 
+	buffer = malloc(sizeof(char) * 1024);
+	if (buffer == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
+		exit(99);
+	}
 	fd_from = open(src, O_RDONLY);
 	if (fd_from == -1)
 	{
@@ -49,12 +55,14 @@ void file_coping(const char *src, const char *dest)
 		if (num_written == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", dest);
+			free(buffer);
 			exit(99);
 		}
 	}
 	if (num_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", src);
+		free(buffer);
 		exit(98);
 	}
 	if (close(fd_from) == -1)
@@ -67,4 +75,5 @@ void file_coping(const char *src, const char *dest)
 		dprintf(STDERR_FILENO, "Error: Cant't close fd %d\n", fd_to);
 		exit(100);
 	}
+	free(buffer);
 }
