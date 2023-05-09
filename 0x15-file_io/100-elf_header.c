@@ -1,4 +1,6 @@
 #include "main.h"
+#include <elf.h>
+#include <string.h>
 void print_error(char *error_msg);
 void print_osabi(Elf64_Ehdr *elf_header);
 void print_type(Elf64_Ehdr *elf_header);
@@ -103,8 +105,13 @@ void print_type(Elf64_Ehdr *elf_header)
  */
 void print_elf_info(char *file_name, Elf64_Ehdr *elf_header)
 {
+	int i;
+	char *d;
+
+	d = file_name;
+	printf("%p", d);
 	printf("Magic: ");
-	for (int i = 0; i < EI_NIDENT; i++)
+	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x ", elf_header->e_ident[i]);
 	}
