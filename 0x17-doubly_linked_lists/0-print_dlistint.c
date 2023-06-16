@@ -18,7 +18,7 @@ size_t print_dlistint(const dlistint_t *h)
 	}
 	while (latest != NULL)
 	{
-		printf("%d \n", latest->n);
+		printf("%d\n", latest->n);
 		counter++;
 		latest = latest->next;
 	}
