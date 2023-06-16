@@ -1,4 +1,5 @@
 #include "lists.h"
+int ext(void);
 /**
  * insert_dnodeint_at_index - func insert node at give index
  * @h: head of the nodes
@@ -21,6 +22,17 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (new_node == NULL)
 	{
 		return (NULL);
+	}
+	if (idx == 0)
+	{
+		new_node->next = *h;
+		new_node->prev = NULL;
+		if (*h != NULL)
+		{
+			(*h)->prev = new_node;
+		}
+		*h = new_node;
+		return (new_node);
 	}
 	new_node->n = n;
 	while (latest != NULL)
@@ -45,5 +57,22 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new_node->prev = latest1;
 	latest->prev = new_node;
 	latest1->next = new_node;
-	return (new_node);
+	if (idx > counter)
+	{
+		return (NULL);
+	}
+	else
+	{
+		return (new_node);
+	}
+}
+
+/**
+ * ext - extends
+ * Return: 0
+ */
+
+int ext(void)
+{
+	return (0);
 }
