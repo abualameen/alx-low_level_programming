@@ -1,5 +1,4 @@
 #include "lists.h"
-int ext(void);
 /**
  * insert_dnodeint_at_index - func insert node at give index
  * @h: head of the nodes
@@ -47,14 +46,4 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	}
 	free(new_node);
 	return (NULL);
-}
-
-/**
- * ext - extends
- * Return: 0
- */
-
-int ext(void)
-{
-	return (0);
 }
