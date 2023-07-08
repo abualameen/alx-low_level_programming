@@ -5,7 +5,7 @@
  * @value: this is the corresponding value to a key
  * Return: returns the created array
  */
-hash_node_t *create_array(char *key, char *value)
+hash_node_t *create_array(const char *key, const char *value)
 {
 	hash_node_t *array1 = (hash_node_t *) malloc(sizeof(hash_node_t));
 
