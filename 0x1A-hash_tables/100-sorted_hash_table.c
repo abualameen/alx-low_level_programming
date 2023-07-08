@@ -1,9 +1,5 @@
 #include "hash_tables.h"
 char *shash_table_get(const shash_table_t *ht, const char *key);
-/*int shash_table_set(shash_table_t *ht, const char *key, const char *value);
-void shash_table_print(const shash_table_t *ht);
-void shash_table_delete(shash_table_t *ht);
-void shash_table_print_rev(const shash_table_t *ht);*/
 /**
  * shash_table_create - create a sorted hash table;
  * @size: size of the sorted hash table
@@ -122,30 +118,30 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
  */
 void shash_table_print(const shash_table_t *ht)
 {
-        unsigned long int h;
-        shash_node_t *checker;
-        int flag = 0;
+	unsigned long int h;
+	shash_node_t *checker;
+	int flag = 0;
 
-        if (ht == NULL)
-        {
-                return;
-        }
-        printf("{");
-        for (h = 0; h < ht->size; h++)
-        {
-                checker = ht->array[h];
-                while (checker != NULL)
-                {
-                        if (flag == 1)
-                        {
-                                printf(", ");
-                        }
-                        printf("'%s' : '%s'", checker->key, checker->value);
-                        flag = 1;
-                        checker = checker->next;
-                }
-        }
-        printf("}\n");
+	if (ht == NULL)
+	{
+		return;
+	}
+	printf("{");
+	for (h = 0; h < ht->size; h++)
+	{
+		checker = ht->array[h];
+		while (checker != NULL)
+		{
+			if (flag == 1)
+			{
+				printf(", ");
+			}
+			printf("'%s' : '%s'", checker->key, checker->value);
+			flag = 1;
+			checker = checker->next;
+		}
+	}
+	printf("}\n");
 }
 
 
@@ -156,53 +152,53 @@ void shash_table_print(const shash_table_t *ht)
  */
 void shash_table_delete(shash_table_t *ht)
 {
-        unsigned long int j;
-        shash_node_t *del_arr;
+	unsigned long int j;
+	shash_node_t *del_arr;
 
-        for (j = 0; j < ht->size; j++)
-        {
-                del_arr = ht->array[j];
-                if (del_arr != NULL)
-                {
-                        free(del_arr->key);
-                        free(del_arr->value);
-                        free(del_arr);
-                }
-        }
-        free(ht->array);
-        free(ht);
+	for (j = 0; j < ht->size; j++)
+	{
+		del_arr = ht->array[j];
+		if (del_arr != NULL)
+		{
+			free(del_arr->key);
+			free(del_arr->value);
+			free(del_arr);
+		}
+	}
+	free(ht->array);
+	free(ht);
 }
 
 #include "hash_tables.h"
 /**
- * hash_table_print - func that prints hash table
+ * shash_table_print_rev - func that prints hash table
  * @ht: hash table
  * Return: 0
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-        unsigned long int h;
-        shash_node_t *checker;
-        int flag = 0;
+	unsigned long int h;
+	shash_node_t *checker;
+	int flag = 0;
 
-        if (ht == NULL)
-        {
-                return;
-        }
-        printf("{");
-        for (h = ht->size - 1; h > 0; h--)
-        {
-                checker = ht->array[h];
-                while (checker != NULL)
-                {
-                        if (flag == 1)
-                        {
-                                printf(", ");
-                        }
-                        printf("'%s' : '%s'", checker->key, checker->value);
-                        flag = 1;
-                        checker = checker->next;
-                }
-        }
-        printf("}\n");
+	if (ht == NULL)
+	{
+		return;
+	}
+	printf("{");
+	for (h = ht->size - 1; h > 0; h--)
+	{
+		checker = ht->array[h];
+		while (checker != NULL)
+		{
+			if (flag == 1)
+			{
+				printf(", ");
+			}
+			printf("'%s' : '%s'", checker->key, checker->value);
+			flag = 1;
+			checker = checker->next;
+		}
+	}
+	printf("}\n");
 }
