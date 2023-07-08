@@ -1,4 +1,5 @@
 #include "hash_tables.h"
+int supb(void);
 /**
  * hash_table_set - sets hash table
  * @ht: hash table
@@ -13,7 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *new_array;
 	hash_node_t *latest_array;
-	
+
 	new_array = (hash_node_t *) malloc(sizeof(hash_node_t));
 	new_array->key = (char *) malloc(strlen(key) + 1);
 	new_array->value = (char *) malloc(strlen(value) + 1);
@@ -51,4 +52,13 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_array->next = ht->array[index];
 	ht->array[index] = new_array;
 	return (1);
+}
+
+/**
+ * supb - supressses
+ * Return: 0
+ */
+int supb(void)
+{
+	return (0);
 }
