@@ -34,6 +34,11 @@ typedef struct hash_table_s
 
 hash_table_t *hash_table_create(unsigned long int size);
 void free_table(hash_table_t *table);
+unsigned long int hash_djb2(const unsigned char *str);
+unsigned long int key_index(const unsigned char *key, unsigned long int size);
+hash_node_t *create_array(char *key, char *value);
+void free_array(hash_node_t* array);
+
 
 
 

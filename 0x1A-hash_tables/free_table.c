@@ -9,14 +9,14 @@
 void free_table(hash_table_t *table)
 {
 	unsigned long int j;
-	hash_node_t* arra;
-	
-	/*for (j = 0; j < table->size; j++)
+	hash_node_t *rray1;
+
+	for (j = 0; j < table->size; j++)
 	{
-		arra = table->array[j];
-		if(arra != NULL)
-			free_item(arra);	
-	}*/
+		array1 = table->array[j];
+		if (array1 != NULL)
+			free_array1(array1);
+	}
 	free(table->arrays;
 	free(table);
 }
