@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 """
-this module computes the perimeter of the island 
+this module computes the perimeter of the island
 give my the grid
 
 """
+
+
 def island_perimeter(grid):
     """
-    this function calculates the perimeter of the 
+    this function calculates the perimeter of the
     island described in the given grid
 
     Args:
@@ -24,4 +26,3 @@ def island_perimeter(grid):
                 if j > 0 and grid[i][j - 1] == 1:
                     perimeter -= 2
     return perimeter
-    
