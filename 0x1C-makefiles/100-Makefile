@@ -1,0 +1,37 @@
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+SRD = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+all: $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+%.o %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+clean:
+	$(shell $(RM) *~ $(NAME))
+
+oclean:
+	$(shell $(RM) $(OBJ))
+fclean: clean oclean
+re: fclean all
+.DEFAULT_GOAL := all
+-include m.hCC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+SRD = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+all: $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+%.o %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+clean:
+	$(shell $(RM) *~ $(NAME))
+
+oclean:
+	$(shell $(RM) $(OBJ))
+fclean: clean oclean
+re: fclean all
+.DEFAULT_GOAL := all
+-include m.h
