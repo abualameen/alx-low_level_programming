@@ -56,12 +56,12 @@ int advanced_binary(int *array, size_t size, int value)
  */
 void print_array(int *array, size_t low, size_t high)
 {
-        size_t i;
+	size_t i;
 
-        printf("Searching in array: %d", array[low]);
-        for (i = low + 1; i <= high; ++i)
-        {
-                printf(", %d", array[i]);
-        }
-        printf("\n");
+	printf("Searching in array: %d", array[low]);
+	for (i = low + 1; i <= high; ++i)
+	{
+		printf(", %d", array[i]);
+	}
+	printf("\n");
 }
