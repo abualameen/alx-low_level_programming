@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "search_algos.h"
 void print_array(int *array, size_t low, size_t high);
 
 
