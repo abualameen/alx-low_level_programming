@@ -5,30 +5,13 @@ void print_array(int *array, size_t low, size_t high);
 
 
 /**
- * print_array - Prints the elements of an array
- * @array: Pointer to the first element of the array
- * @low: Starting index for printing
- * @high: Ending index for printing
- */
-void print_array(int *array, size_t low, size_t high)
-{
-	size_t i;
-
-	printf("Searching in array: %d", array[low]);
-	for (i = low + 1; i <= high; ++i)
-	{
-		printf(", %d", array[i]);
-	}
-	printf("\n");
-}
-
-/**
  * advanced_binary - Searches for a value in a sorted array of integers
  * @array: Pointer to the first element of the array to search in
  * @size: Number of elements in the array
  * @value: Value to search for
  * Return: The index where the value is located, or -1 if not found
  */
+
 int advanced_binary(int *array, size_t size, int value)
 {
 	size_t low = 0, high = size - 1;
@@ -62,4 +45,23 @@ int advanced_binary(int *array, size_t size, int value)
 		}
 	}
 	return (-1);
+}
+
+
+/**
+ * print_array - Prints the elements of an array
+ * @array: Pointer to the first element of the array
+ * @low: Starting index for printing
+ * @high: Ending index for printing
+ */
+void print_array(int *array, size_t low, size_t high)
+{
+        size_t i;
+
+        printf("Searching in array: %d", array[low]);
+        for (i = low + 1; i <= high; ++i)
+        {
+                printf(", %d", array[i]);
+        }
+        printf("\n");
 }
