@@ -1,23 +1,19 @@
 CC := gcc
 SRC := main.c school.c
 NAME := school
-CFLAGS := -Wall -Werror -Wextra -pedantic
 
 .PHONY: all clean fclean oclean re missing_header
 
 all: $(NAME)
 
-$(NAME): $(SRC:.c=.o)
-	$(CC) $(CFLAGS) -o $@ $^
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+$(NAME): $(SRC)
+	$(CC) -Wall -Werror -Wextra -pedantic -o $@ $^
 
 clean:
 	@rm -f *~ $(NAME)
 
 oclean:
-	@rm -f $(SRC:.c=.o)
+	@rm -f $(NAME:.c=.o)
 
 fclean: clean oclean
 	@rm -f $(NAME)
