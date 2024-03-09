@@ -1,8 +1,9 @@
 CC = gcc
-SRC = main.c school.c
-OBJ = $(SRC:.c=.o)
+SRC := main.c school.c
+OBJ := $(SRC:.c=.o)
 NAME = school
-RM = rm -f
+RM := rm -f
+CFLAGS := -Wall -Werror -Wextra -pedantic
 
 .PHONY: all clean fclean oclean re missing_header
 
@@ -12,7 +13,7 @@ $(NAME): $(OBJ)
 	$(CC) -o $@ $(OBJ)
 
 $(OBJ): $(SRC)
-	$(CC) -c $(filter %$(basename $@).c,$(SRC)) -o $@
+	$(CC) $(CFLAGS) -c $(filter %$(basename $@).c,$(SRC)) -o $@
 
 clean:
 	@$(RM) *~ $(NAME)
