@@ -9,7 +9,7 @@ RM := rm -f
 all: $(NAME)
 
 $(NAME): $(SRC:.c=.o)
-	$(CC) $(CFLAGS) -o $(NAME) $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
