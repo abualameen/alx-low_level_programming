@@ -8,7 +8,7 @@ CFLAGS := -Wall -Werror -Wextra -pedantic
 all: $(NAME)
 
 $(NAME): $(SRC:.c=.o)
-	$(CC) -o $@ $^
+	$(CC) -o $(NAME) $^
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
