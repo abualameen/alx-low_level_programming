@@ -1,37 +1,32 @@
+NAME = school
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
-SRD = main.c school.c
+SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
-NAME = school
+RM := rm -f
+
+.PHONY: all clean fclean oclean re
+
 all: $(NAME)
+
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
-%.o %.c
+	$(CC) -o $(NAME) $(OBJ)
+
+$(OBJ): $(SRC)
 	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-	$(shell $(RM) *~ $(NAME))
+	@$(RM) *~ $(NAME)
 
 oclean:
-	$(shell $(RM) $(OBJ))
-fclean: clean oclean
-re: fclean all
-.DEFAULT_GOAL := all
--include m.hCC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic
-SRD = main.c school.c
-OBJ = $(SRC:.c=.o)
-NAME = school
-all: $(NAME)
-$(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
-%.o %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-clean:
-	$(shell $(RM) *~ $(NAME))
+	@$(RM) $(OBJ)
 
-oclean:
-	$(shell $(RM) $(OBJ))
 fclean: clean oclean
+
 re: fclean all
-.DEFAULT_GOAL := all
--include m.h
+
+school: $(OBJ)
+	$(CC) -o $(NAME) $(OBJ)
+
+missing_header:
+	@test -f m.h || (echo "Header file m.h is missing" && false)
