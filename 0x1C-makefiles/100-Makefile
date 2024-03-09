@@ -1,6 +1,5 @@
 CC = gcc
 SRC := main.c school.c
-OBJ := main.o school.o
 NAME = school
 CFLAGS := -Wall -Werror -Wextra -pedantic
 RM := rm -f
@@ -9,7 +8,7 @@ RM := rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): main.o school.o
 	$(CC) $(CFLAGS) -o $@ $^
 
 %.o: %.c
@@ -19,7 +18,7 @@ clean:
 	@$(RM) *~ $(NAME)
 
 oclean:
-	@$(RM) $(OBJ)
+	@$(RM) main.o school.o
 
 fclean: clean oclean
 	@$(RM) $(NAME)
@@ -27,4 +26,4 @@ fclean: clean oclean
 re: fclean all
 
 missing_header:
-	@test -f m.h || (echo "Header file m.h is missing" && false)`
+	@test -f m.h || (echo "Header file m.h is missing" && false)
