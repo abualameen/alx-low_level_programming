@@ -5,63 +5,42 @@
 #define PASSWORD_LENGTH 12
 
 /**
- * randomChar - Generate a random character from a given set
- * @set: The set of characters to choose from
- * @setSize: The size of the set
- *
- * Return: The randomly chosen character
- */
-char randomChar(char set[], int setSize)
-{
-	return (set[rand() % setSize]);
-}
-
-/**
  * generatePassword - Generate a random password
  * @password: The buffer to store the generated password
  * @length: The length of the password to generate
+ *
+ * Description: This function generates a random password of specified length.
  */
 void generatePassword(char password[], int length)
 {
-	char lowercase[] = "abcdefghijklmnopqrstuvwxyz";
-	char uppercase[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-	char digits[] = "0123456789";
-
+	char charset[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+	int charsetSize = sizeof(charset) - 1; /* excluding null terminator */
 	int i;
 
-	for (i = 0; i < length; i++)
-	{
-		int choice = rand() % 3;
+	srand(time(NULL));
 
-		switch (choice)
-		{
-		case 0:
-			password[i] = randomChar(lowercase, sizeof(lowercase) - 1);
-			break;
-		case 1:
-			password[i] = randomChar(uppercase, sizeof(uppercase) - 1);
-			break;
-		case 2:
-			password[i] = randomChar(digits, sizeof(digits) - 1);
-			break;
-		}
+	for (i = 0; i < length; ++i)
+	{
+		int index = rand() % charsetSize;
+
+		password[i] = charset[index];
 	}
-	password[length] = '\0';
+
+	password[length] = '\0'; /* Null-terminate the string */
 }
 
 /**
  * main - Entry point
  *
- * Return: Always 0
+ * Return: Always 0 (Success)
+ *
+ * Description: This function generates a random password and prints it.
  */
 int main(void)
 {
-	srand(time(NULL));
-
-	char password[PASSWORD_LENGTH + 1];
+	char password[PASSWORD_LENGTH + 1]; /* +1 for null terminator */
 
 	generatePassword(password, PASSWORD_LENGTH);
-
 	printf("%s\n", password);
 
 	return (0);
