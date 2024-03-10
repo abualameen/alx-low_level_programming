@@ -10,8 +10,8 @@
  */
 int main(void)
 {
-	unsigned long int first = 1, second = 2, next;
 	int count;
+	unsigned long int first = 1, second = 2, next;
 
 	printf("%lu, %lu", first, second);
 
