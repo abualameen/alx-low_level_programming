@@ -12,32 +12,26 @@ int _atoi(char *s)
 	int i = 0;
 	int sign = 1;
 
-	if (s == NULL || *s == '\0')
+	if (s == NULL)
 		return (0);
 
-	while (s[i] == ' ')
-		i++;
-
-	if (s[i] == '-' || s[i] == '+')
+	while (s[i] != '\0')
 	{
 		if (s[i] == '-')
-			sign = -1;
-		i++;
-	}
-
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		int digit = s[i] - '0';
-
-		if (num > INT_MAX / 10 || (num == INT_MAX / 10 && digit > INT_MAX % 10))
+			sign *= -1;
+		else if (s[i] >= '0' && s[i] <= '9')
 		{
-			if (sign == 1)
-				return (INT_MAX);
-			else
-				return (INT_MIN);
+			num = num * 10 + (s[i] - '0');
+			if (num < 0) /* Check for overflow */
+			{
+				if (sign == 1)
+					return (-1);
+				else
+					return (0);
+			}
 		}
-
-		num = num * 10 + digit;
+		else if (num != 0) /* Stop if non-digit encountered after digits */
+			break;
 		i++;
 	}
 
