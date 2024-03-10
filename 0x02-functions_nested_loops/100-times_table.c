@@ -21,6 +21,7 @@ void print_times_table(int n)
 		for (j = 1; j <= n; j++)
 		{
 			_putchar(',');
+			_putchar(' ');
 			result = i * j;
 			if (result < 100)
 				_putchar(' ');
