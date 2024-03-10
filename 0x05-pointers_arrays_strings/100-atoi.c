@@ -1,39 +1,48 @@
 #include "main.h"
-
 /**
- * _atoi - Converts a string to an integer
- * @s: The string to convert
- *
- * Return: The integer value of the string
+ * _atoi - this function conv str to int
+ * @s: function argument
+ * Return: always 0
  */
+
 int _atoi(char *s)
 {
 	int num = 0;
+	int t;
+	int count = 0;
+	int r;
+	int minus = 0;
 	int i = 0;
-	int sign = 1;
 
-	if (s == NULL)
-		return (0);
-
-	while (s[i] != '\0')
+	for (r = 0; s[r] != '\0'; r++)
 	{
-		if (s[i] == '-')
-			sign *= -1;
-		else if (s[i] >= '0' && s[i] <= '9')
+		count++;
+	}
+	for (t = 0; t < count; t++)
+	{
+		if (s[t] == '-')
 		{
-			num = num * 10 + (s[i] - '0');
-			if (num < 0) /* Check for overflow */
-			{
-				if (sign == 1)
-					return (-1);
-				else
-					return (0);
-			}
+			minus = 1;
+			i++;
 		}
-		else if (num != 0) /* Stop if non-digit encountered after digits */
-			break;
-		i++;
+		else if (s[t] == '+')
+		{
+			i++;
+		}
+		else if (s[t] == ' ')
+		{
+			i++;
+		}
+		else if (s[t] >= 0 || s[t] <= 9)
+		{
+			num = num * 10 + (s[t] - 48);
+			i++;
+		}
+	}
+	if (minus == 1)
+	{
+		num = num * (-1);
 	}
 
-	return (num * sign);
+	return (num);
 }
