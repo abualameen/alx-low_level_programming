@@ -10,8 +10,8 @@
  */
 int main(void)
 {
-	int count;
 	unsigned long int first = 1, second = 2, next;
+	int count;
 
 	printf("%lu, %lu", first, second);
 
@@ -22,8 +22,6 @@ int main(void)
 		first = second;
 		second = next;
 	}
-
 	printf("\n");
-
 	return (0);
 }
