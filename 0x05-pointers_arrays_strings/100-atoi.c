@@ -1,43 +1,48 @@
 #include "main.h"
-
 /**
- * _atoi - Convert a string to an integer
- * @s: The string to convert
- *
- * Return: The integer value of the string
+ * _atoi - this function conv str to int
+ * @s: function argument
+ * Return: always 0
  */
+
 int _atoi(char *s)
 {
-    int num = 0;
-    int i = 0;
-    int sign = 1;
+	int num = 0;
+	int t;
+	int count = 0;
+	int r;
+	int minus = 0;
+	int i = 0;
 
-    // Skip leading whitespace
-    while (s[i] == ' ')
-        i++;
+	for (r = 0; s[r] != '\0'; r++)
+	{
+		count++;
+	}
+	for (t = 0; t < count; t++)
+	{
+		if (s[t] == '-')
+		{
+			minus = 1;
+			i++;
+		}
+		else if (s[t] == '+')
+		{
+			i++;
+		}
+		else if (s[t] == ' ')
+		{
+			i++;
+		}
+		else if (s[t] >= 0 || s[t] <= 9)
+		{
+			num = num * 10 + (s[t] - 48);
+			i++;
+		}
+	}
+	if (minus == 1)
+	{
+		num = num * (-1);
+	}
 
-    // Handle sign
-    if (s[i] == '-' || s[i] == '+') {
-        if (s[i] == '-')
-            sign = -1;
-        i++;
-    }
-
-    // Process digits
-    while (s[i] >= '0' && s[i] <= '9') {
-        int digit = s[i] - '0';
-
-        // Check for overflow
-        if (num > INT_MAX / 10 || (num == INT_MAX / 10 && digit > INT_MAX % 10)) {
-            if (sign == 1)
-                return INT_MAX;
-            else
-                return INT_MIN;
-        }
-
-        num = num * 10 + digit;
-        i++;
-    }
-
-    return num * sign;
+	return (num);
 }
