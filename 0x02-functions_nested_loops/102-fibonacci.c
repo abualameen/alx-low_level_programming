@@ -7,19 +7,19 @@
  */
 int main(void)
 {
-    long int first = 1, second = 2, next, count;
+	long int first = 1, second = 2, next, count;
 
-    printf("%ld, %ld", first, second);
+	printf("%ld, %ld", first, second);
 
-    for (count = 2; count < 50; count++)
-    {
-        next = first + second;
-        printf(", %ld", next);
-        first = second;
-        second = next;
-    }
+	for (count = 2; count < 50; count++)
+	{
+		next = first + second;
+		printf(", %ld", next);
+		first = second;
+		second = next;
+	}
 
-    printf("\n");
+	printf("\n");
 
-    return (0);
+	return (0);
 }
